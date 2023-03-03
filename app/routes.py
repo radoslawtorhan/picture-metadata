@@ -18,7 +18,7 @@ def index():
             file.save(file_path)
         except Exception as e:
             print(e)
-        print("DDD")
+
         imd = get_metadata_from_file(Path(file_path))
         data['device'] = imd.device
         data['width'] = imd.width_px
