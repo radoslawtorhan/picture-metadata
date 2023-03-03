@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function onFileSelected(event) {
+        var selectedFile = event.target.files[0];
+        var reader = new FileReader();
+
+        var imgtag = document.getElementById("myimage");
+        imgtag.title = selectedFile.name;
+
+        reader.onload = function(event) {
+        imgtag.src = event.target.result;
+        };
+
+        reader.readAsDataURL(selectedFile);
+        }
+
+</script>
+</head>
+<body>
+
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" id="myFile" name="filename" onchange="onFileSelected(event)">
+      <input type="submit">
+    </form>
+
+    {% if image%}
+        <img src="{{ url_for('static', filename='images/image.jpg') }}"  alt="" width="{{ data.width / 3}}" height="{{ data.height / 3 }}">
+
+        <ul>
+            {% for k, v in data.items() %}
+                <li>{{ k }} - {{ v }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
