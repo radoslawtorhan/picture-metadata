@@ -26,7 +26,15 @@
       <input type="file" id="myFile" name="filename" onchange="onFileSelected(event)">
       <input type="submit">
     </form>
-
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
     {% if image%}
         <img src="{{ url_for('static', filename='images/image.jpg') }}"  alt="" width="{{ data.width / 3}}" height="{{ data.height / 3 }}">
 

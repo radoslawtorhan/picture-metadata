@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development configuration
+instance/
+
+# Logs
+*.log
+
+# Compiled Python files
+*.pyc
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+nosetests.xml
+nosetests.xml.*
+
+# Flask cache
+__pycache__/
+*.pyc
+.cache/
