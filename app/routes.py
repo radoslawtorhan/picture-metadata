@@ -7,7 +7,7 @@ from app import app
 from flask import request, redirect, render_template, flash, session
 from . image_metadata import ImageMetaData, get_metadata_from_file
 
-app.config['UPLOAD_FOLDER'] = app.config['UPLOAD_FOLDER'] = Path(__file__).parent / "static"
+app.config['UPLOAD_FOLDER'] = Path(__file__).parent / "static"
 app.config['SECRET_KEY'] = 'sdsdadds'
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
