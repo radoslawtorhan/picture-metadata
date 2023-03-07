@@ -22,7 +22,9 @@ def index():
     if request.method == "POST":
         file = request.files['filename']
         filename = "image.jpg"
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], "images", filename)
+        path: Path= app.config['UPLOAD_FOLDER'] / "images"
+        if not path.exists():
+            path.mkdir()
 
         if file.filename == '':
             flash('No selected file')
